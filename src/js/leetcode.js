@@ -108,14 +108,14 @@ function constructGitHubPath(
     console.log('Language:', language);
     if (language) {
       const path = useDifficultyFolder
-        ? `${language}/${difficulty}/${problem}/${filename}`
-        : `/${language}/${problem}/${filename}`;
+        ? `${basePath}/${language}/${difficulty}/${filePath}` // ${basePath}/ 추가
+        : `${basePath}/${language}/${filePath}`; // ${basePath}/ 추가
       return `https://api.github.com/repos/${hook}/contents/LeetCode/${difficulty}/${path}`;
     }
   }
   const path = useDifficultyFolder
     ? `${basePath}/${difficulty}/${problem}/${filename}`
-    : `${problem}/${filename}`;
+    : `${basePath}/${filePath}`; // ${basePath}/ 추가
   return `https://api.github.com/repos/${hook}/contents/LeetCode/${difficulty}/${path}`;
 }
 
